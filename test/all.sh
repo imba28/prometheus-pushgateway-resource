@@ -73,3 +73,9 @@ test 'metric_with_env_vars' | jq -e "
     .pushgw_url == $(echo 'http://pushgw:9091' | jq -R .) and
     .body == \"${expected_body}\" and
     .job == $(echo 'metric_with_env_vars' | jq -R .)"
+
+echo "42" > /tmp/metric_value
+test 'metric_from_file' | jq -e "
+    .pushgw_url == $(echo 'http://pushgw:9091' | jq -R .) and
+    .body == $(echo 'metric_from_file 42' | jq -R .) and
+    .job == $(echo 'metric_from_file' | jq -R .)"

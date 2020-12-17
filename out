@@ -35,6 +35,12 @@ if [[ ${labels} != 'null' ]]; then
     metric="${metric}{${joined_labels}}"
 fi
 
+value_file="$(jq -r '.params.value_file' < "${payload}")" 
+if [[ -f "$value_file" ]]; then
+    value=$(head -n 1 "$value_file")
+fi
+
+
 body="${metric} ${value}"
 body=$(echo ${body} | envsubst)
 

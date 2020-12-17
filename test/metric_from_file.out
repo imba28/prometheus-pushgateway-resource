@@ -1,0 +1,11 @@
+{
+  "source": {
+    "url": "http://pushgw:9091",
+    "job": "metric_from_file",
+    "debug": "true"
+  },
+  "params": {
+    "metric": "metric_from_file",
+    "value_file": "/tmp/metric_value"
+  }
+}

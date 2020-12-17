@@ -122,12 +122,13 @@ jobs:
 
 #### The `jobs.plan.task.on_success|on_failure.params` section
 
-| Parameter | Type   | Required | Default | Description                                                                                       |
-|:----------|:-------|:---------|:--------|:--------------------------------------------------------------------------------------------------|
-| `metric`  | String | yes      |         | The metric to send to the Pushgateway                                                             |
-| `value`   | Float  | yes      |         | Value for the metric                                                                                |
-| `job`     | String | no       |         | Job name of the metrics ( `metric{job="THIS VALUE",...}`) - overrides value in `resource` section |
-| `labels`  | Map    | no       |         | Labels and values to be added as `metric{key="value"...}`                                         |
+| Parameter    | Type   | Required | Default | Description                                                                                       |
+|:-------------|:-------|:---------|:--------|:--------------------------------------------------------------------------------------------------|
+| `metric`     | String | yes      |         | The metric to send to the Pushgateway                                                             |
+| `value`      | Float  | yes      |         | Value for the metric                                                                              |
+| `value_file` | String | no       |         | Path to file to read a value for the metric from. Overrides `value`                               |
+| `job`        | String | no       |         | Job name of the metrics ( `metric{job="THIS VALUE",...}`) - overrides value in `resource` section |
+| `labels`     | Map    | no       |         | Labels and values to be added as `metric{key="value"...}`                                         |
 
 The following environment variables can be used in the `metric` and `labels` properties:
 
